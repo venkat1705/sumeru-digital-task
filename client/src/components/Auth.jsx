@@ -24,7 +24,7 @@ const Auth = () => {
     }
   };
   return (
-    <div>
+    <div className="px-4">
       <div className=" flex flex-col items-center justify-center h-screen">
         <div>
           <div>
