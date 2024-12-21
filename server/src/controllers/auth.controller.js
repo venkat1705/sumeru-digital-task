@@ -63,14 +63,14 @@ export const googleAuthCallback = async (req, res) => {
       generateToken(user._id, res);
       await user.save();
 
-      res.redirect("http://localhost:5173/chat");
+      res.redirect(`${process.env.BASE_URL}/chat`);
     } else {
       //   console.log("running else case");
       const token = generateToken(user._id, res);
       console.log(token);
 
       if (token) {
-        res.redirect("http://localhost:5173/chat");
+        res.redirect(`${process.env.BASE_URL}/chat`);
       }
     }
 
