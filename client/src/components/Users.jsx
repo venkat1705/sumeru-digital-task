@@ -75,21 +75,17 @@ const Users = ({ searchQuery, selected }) => {
                 )}
               </div>
 
-              <div className="flex-1 w-full flex-col">
+              <div className="flex-1">
                 <div className="flex items-center justify-between">
                   <p className="font-medium capitalize text-sm antialiased tracking-wide">
                     {user.userName || ""}
                   </p>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 text-left">
                   {onlineUsers.includes(user._id) ? (
-                    <span className="font-medium text-green-500 text-left">
-                      Online
-                    </span>
+                    <span className="font-medium text-green-500">Online</span>
                   ) : (
-                    <span className="font-medium text-gray-400 text-left">
-                      Offline
-                    </span>
+                    <span className="font-medium text-gray-400">Offline</span>
                   )}
                 </div>
               </div>
