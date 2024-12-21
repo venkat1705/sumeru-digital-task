@@ -54,7 +54,7 @@ You can access the deployed version of the application at the following link:
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/your-repo/realtime-chat-app.git](https://github.com/venkat1705/sumeru-digital-task)
+git clone https://github.com/venkat1705/sumeru-digital-task
 cd sumeru-digital-task
 ```
 
