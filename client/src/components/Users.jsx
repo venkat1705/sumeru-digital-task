@@ -1,9 +1,9 @@
 import { useAuthStore } from "@/store/authStore";
 import { useChatStore } from "@/store/chatStore";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button } from "./ui/button";
 import Loader from "./Loader";
+import { Button } from "./ui/button";
 
 const Users = ({ searchQuery, selected }) => {
   const { getUsers, users, isUserLoading } = useChatStore();

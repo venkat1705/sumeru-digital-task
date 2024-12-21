@@ -1,15 +1,9 @@
-import React from "react";
-import { AppSidebar } from "./app-sidebar";
-import MainSidebarProvider from "./providers/sidebarProvider";
 import { useChatStore } from "@/store/chatStore";
-import NoSelectedChat from "./NoSelectedChat";
-import Chat from "./chat/Chat";
-import Users from "./Users";
 import ChatUsers from "./ChatUsers";
+import NoSelectedChat from "./NoSelectedChat";
+import MainSidebarProvider from "./providers/sidebarProvider";
 
 const HomePage = () => {
-  const { selectedUser } = useChatStore();
-
   return (
     <div>
       <MainSidebarProvider>

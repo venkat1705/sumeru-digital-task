@@ -11,15 +11,6 @@ export const requireAuth = async (req, res, next) => {
         .json({ message: "Unauthorized - No token provided" });
     }
 
-    // const { authorization } = req.headers;
-
-    // if (!authorization) {
-    //   return res
-    //     .status(202)
-    //     .json({ message: "Unauthorized - No token provided" });
-    // }
-    // const token = authorization.replace("Bearer ", "");
-
     const decoded = JWT.verify(token, process.env.JWT_SECRET);
 
     if (!decoded) {

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Button } from "./ui/button";
 import { handleGetAuthURL } from "@/actions/actions";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import Loader from "./Loader";
+import { Button } from "./ui/button";
 
 const Auth = () => {
   const [loading, setLoading] = useState(false);

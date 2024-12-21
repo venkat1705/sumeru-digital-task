@@ -2,18 +2,13 @@ import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Auth from "./components/Auth";
+import Chat from "./components/chat/Chat";
 import HomePage from "./components/HomePage";
 import Loader from "./components/Loader";
 import { useAuthStore } from "./store/authStore";
-import Chat from "./components/chat/Chat";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
-
-  const location = useLocation();
-  const pathName = location.pathname;
-
-  const showNavbar = ["/chat"];
 
   useEffect(() => {
     checkAuth();

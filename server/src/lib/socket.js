@@ -16,8 +16,7 @@ export function getReceiverSocketId(userId) {
   return userSocketMap[userId];
 }
 
-// used to store online users
-const userSocketMap = {}; // {userId: socketId}
+const userSocketMap = {};
 
 io.on("connection", (socket) => {
   console.log("A user connected", socket.id);
@@ -25,7 +24,6 @@ io.on("connection", (socket) => {
   const userId = socket.handshake.query.userId;
   if (userId) userSocketMap[userId] = socket.id;
 
-  // io.emit() is used to send events to all the connected clients
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
   socket.on("disconnect", async () => {
@@ -33,8 +31,8 @@ io.on("connection", (socket) => {
     if (userId) {
       try {
         await User.findByIdAndUpdate(
-          { _id: userId }, // Find the user by userId
-          { $set: { lastActive: new Date() }, new: true } // Set the disconnectTime field
+          { _id: userId },
+          { $set: { lastActive: new Date() }, new: true }
         );
         console.log(`User ${userId} disconnect time updated`);
       } catch (err) {

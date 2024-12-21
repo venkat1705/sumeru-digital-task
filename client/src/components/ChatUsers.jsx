@@ -1,6 +1,7 @@
-import { ListFilterIcon } from "lucide-react";
+import { useState } from "react";
 import Users from "./Users";
 import MobileDropdown from "./ui/MobileDropdown";
+import { Button } from "./ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -9,8 +10,6 @@ import {
   SidebarHeader,
   SidebarInput,
 } from "./ui/sidebar";
-import { useState } from "react";
-import { Button } from "./ui/button";
 
 let types = [
   {
@@ -36,7 +35,6 @@ const ChatUsers = () => {
             <div className="lg:hidden">
               <MobileDropdown />
             </div>
-            {/* <NavUser user={user} /> */}
           </div>
         </div>
         <SidebarInput
