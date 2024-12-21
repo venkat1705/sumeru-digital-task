@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Loader from "../Loader";
 import MainSidebarProvider from "../providers/sidebarProvider";
 import ChatHeader from "./ChatHeader";
-import ChatMessage from "./chatMessage";
+import ChatMessage from "./ChatMessage";
 
 const Chat = () => {
   const [searchQuery, setSearchQuery] = useState("");
