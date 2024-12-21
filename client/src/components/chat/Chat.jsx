@@ -2,10 +2,10 @@ import { useAuthStore } from "@/store/authStore";
 import { useChatStore } from "@/store/chatStore";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader";
 import MainSidebarProvider from "../providers/sidebarProvider";
 import ChatHeader from "./ChatHeader";
 import ChatMessage from "./chatMessage";
-import Loader from "../Loader";
 
 const Chat = () => {
   const [searchQuery, setSearchQuery] = useState("");
