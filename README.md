@@ -72,7 +72,7 @@ npm install
 
 ### 3. Set Up Environment Variables
 
-Create a `.env` file in the `backend` folder with the following content i have already gave refence with file name as .env.example:
+Create a `.env` file in the `backend` folder with the content based on the reference provided in the .env.example file:
 ```env
 PORT=
 MONGO_URI=
