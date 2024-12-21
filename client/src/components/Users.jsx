@@ -6,12 +6,10 @@ import { Button } from "./ui/button";
 import Loader from "./Loader";
 
 const Users = ({ searchQuery, selected }) => {
-  const { getUsers, users, setSelectedUser, isUserLoading } = useChatStore();
+  const { getUsers, users, isUserLoading } = useChatStore();
   const { onlineUsers } = useAuthStore();
   const navigate = useNavigate();
   const { id } = useParams();
-
-  const [lastMessages, setLastMessages] = useState({});
 
   useEffect(() => {
     getUsers();
@@ -49,10 +47,7 @@ const Users = ({ searchQuery, selected }) => {
         {usersToDisplay?.map((user) => {
           return (
             <Button
-              onClick={() => {
-                setSelectedUser(user);
-                navigate(`/chat/${user._id}`);
-              }}
+              onClick={() => navigate(`/chat/${user._id}`)}
               variant="ghost"
               key={user._id}
               className={`flex h-full transition-all duration-300 w-full items-center gap-2 hover:bg-accent py-3 px-2 rounded-xl cursor-pointer ${

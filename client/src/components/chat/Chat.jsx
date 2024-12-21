@@ -15,7 +15,7 @@ const Chat = () => {
   const {
     messages,
     getMessages,
-    isMessagesLoading,
+    isMessageLoading,
     selectedUser,
     subscribeToMessages,
     unsubscribeFromMessages,
@@ -92,7 +92,7 @@ const Chat = () => {
       <div className="flex flex-col overflow-y-auto h-dvh">
         <ChatHeader setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
         <div className="flex-1 overflow-auto px-4 py-6">
-          {isMessagesLoading ? (
+          {isMessageLoading ? (
             <div className="flex items-center flex-col h-max-h-dvh py-40">
               <Loader />
               <p>Please wait we are fetching your messages...</p>

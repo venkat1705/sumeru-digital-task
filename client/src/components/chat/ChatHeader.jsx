@@ -39,7 +39,7 @@ const ChatHeader = ({ searchQuery, setSearchQuery }) => {
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-accent">
             <img
-              src={user?.picture}
+              src={user?.picture || "/avatar.png"}
               width="100%"
               height="100%"
               referrerpolicy="no-referrer"
@@ -62,7 +62,7 @@ const ChatHeader = ({ searchQuery, setSearchQuery }) => {
                 Last active{" "}
                 {getLastActive(
                   user?.lastActive ? user?.lastActive : user?.createdAt
-                )}
+                ) || "loading..."}
               </p>
             )}
           </div>
