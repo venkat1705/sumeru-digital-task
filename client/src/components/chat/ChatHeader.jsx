@@ -84,7 +84,7 @@ const ChatHeader = ({ searchQuery, setSearchQuery }) => {
         <div className="flex items-center transition-all duration-300">
           <Input
             type="text"
-            className="border w-[400px] rounded-2xl h-10 transition-all duration-300"
+            className="border lg:w-[400px] w-full rounded-2xl h-10 transition-all duration-300"
             placeholder="Search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
