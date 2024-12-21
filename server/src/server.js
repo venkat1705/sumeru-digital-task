@@ -23,9 +23,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
+    // origin: [
+    //   "http://localhost:4173",
+    //   "http://localhost:5173",
+    //   "https://lh3.googleusercontent.com/",
+    // ],
     origin: [
-      "http://localhost:4173",
-      "http://localhost:5173",
+      "https://sumeru-digital-task.onrender.com",
       "https://lh3.googleusercontent.com/",
     ],
     credentials: true,
