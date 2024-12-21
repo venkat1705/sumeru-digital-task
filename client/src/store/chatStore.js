@@ -51,22 +51,6 @@ export const useChatStore = create((set, get) => ({
       set({ isMessageLoading: false });
     }
   },
-  getChats: async (userId) => {
-    set({ isChatLoading: true });
-    try {
-      const res = await handleGetMessage(userId);
-
-      if (res?.status === 200) {
-        set({ chats: res?.data });
-      } else {
-        set({ chats: [] });
-      }
-    } catch (error) {
-      toast.error({ error: error.response.data.message });
-    } finally {
-      set({ isChatLoading: false });
-    }
-  },
 
   sendMessage: async (data, id) => {
     const { messages } = get();

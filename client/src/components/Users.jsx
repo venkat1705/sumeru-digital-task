@@ -6,8 +6,7 @@ import { Button } from "./ui/button";
 import Loader from "./Loader";
 
 const Users = ({ searchQuery, selected }) => {
-  const { getUsers, users, setSelectedUser, getChats, chats, isUserLoading } =
-    useChatStore();
+  const { getUsers, users, setSelectedUser, isUserLoading } = useChatStore();
   const { onlineUsers } = useAuthStore();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -18,40 +17,12 @@ const Users = ({ searchQuery, selected }) => {
     getUsers();
   }, [getUsers]);
 
-  useEffect(() => {
-    if (users?.length > 0) {
-      users?.forEach(async (user) => {
-        await getChats(user._id);
-      });
-    }
-  }, [users, getChats]);
-
-  useEffect(() => {
-    if (chats?.length) {
-      const newLastMessages = {};
-
-      users?.forEach((user) => {
-        const userMessages = chats?.filter(
-          (msg) => msg.senderId === user._id || msg.receiverId === user._id
-        );
-        const lastMessage = userMessages?.sort(
-          (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
-        )[0];
-        newLastMessages[user._id] = lastMessage;
-      });
-
-      setLastMessages(newLastMessages);
-    }
-  }, [chats, users]);
-
   const filteredUsers = users?.filter((user) =>
     user.userName.toLowerCase().includes(searchQuery?.toLowerCase())
   );
 
-  // Check if the selected user (text) matches any online users
   const isSelectedUserOnline = selected === "online";
 
-  // If selected user is online, only show online users
   const usersToDisplay = isSelectedUserOnline
     ? filteredUsers.filter((user) => onlineUsers.includes(user._id))
     : filteredUsers;
@@ -111,16 +82,13 @@ const Users = ({ searchQuery, selected }) => {
                   <p className="font-medium capitalize text-sm antialiased tracking-wide">
                     {user.userName || ""}
                   </p>
-                  {lastMessage?.updatedAt && (
-                    <p className="text-xs text-green-500">
-                      {new Date(lastMessage.updatedAt).toLocaleDateString()}
-                    </p>
-                  )}
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm text-gray-500 w-full text-left truncate max-w-[220px]">
-                    {lastMessage?.text || "No messages yet..."}
-                  </p>
+                  {onlineUsers.includes(user._id) ? (
+                    <span className="font-medium text-green-500">Online</span>
+                  ) : (
+                    <span className="font-medium text-gray-400">Offline</span>
+                  )}
                 </div>
               </div>
             </Button>
