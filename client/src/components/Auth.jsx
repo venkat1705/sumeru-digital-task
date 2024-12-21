@@ -24,10 +24,7 @@ const Auth = () => {
     }
   };
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 h-screen px-4">
-      <div className="border-r lg:flex items-center justify-center hidden">
-        left
-      </div>
+    <div>
       <div className=" flex flex-col items-center justify-center">
         <div>
           <div>
