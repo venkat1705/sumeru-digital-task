@@ -47,8 +47,6 @@ const Users = ({ searchQuery, selected }) => {
     <div className="px-4 py-6">
       <div className="space-y-4 w-full">
         {usersToDisplay?.map((user) => {
-          const lastMessage = lastMessages[user._id];
-
           return (
             <Button
               onClick={() => {
@@ -85,9 +83,13 @@ const Users = ({ searchQuery, selected }) => {
                 </div>
                 <div className="flex-1">
                   {onlineUsers.includes(user._id) ? (
-                    <span className="font-medium text-green-500">Online</span>
+                    <span className="font-medium text-green-500 text-left">
+                      Online
+                    </span>
                   ) : (
-                    <span className="font-medium text-gray-400">Offline</span>
+                    <span className="font-medium text-gray-400 text-left">
+                      Offline
+                    </span>
                   )}
                 </div>
               </div>
